@@ -34,11 +34,11 @@ function Birthday() {
   
     const shareImage = async (ref) => {
       const blob = await htmlToImage.toBlob(ref.current);
-      const file = new File([blob], "sankranti_wish.png", { type: "image/png" });
+      const file = new File([blob], "cricket_celebration.png", { type: "image/png" });
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         navigator.share({
           files: [file],
-          title: "Happy Birthday SuperStar!",
+          title: "Wishing Team India",
           text: 'Create Yours:',
           url:  shareLink
         });
@@ -59,7 +59,7 @@ function Birthday() {
             left:"-47%",
             transform: "translateY(-50%) rotate(270deg)",
             fontSize: 80,
-            color: "rgba(255, 230, 5, 0.15)",
+            color: "rgba(0, 0, 0, 0.15)",
             fontFamily: "Supermercado One",
             letterSpacing: 2,
             zIndex:3
@@ -68,11 +68,14 @@ function Birthday() {
           way2news
         </p>
         <div className="absolute top-0 w-full  flex flex-col gap-2 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold bg-white">
-          <img src='/mahesh.jpg' alt='hero' />
+            <div>
+          <p className='w-full text-center bg-black text-white font-semibold'>Share your Moment</p>
+          <img src='/cricket.jpeg' alt='hero' />
+          </div>
           <img
             src={uploadedImage || "/person.png"}
             alt="Uploaded Person"
-            className="w-48 h-48 rounded-md cursor-pointer shadow-lg object-contain"
+            className="w-full h-48 rounded-md cursor-pointer shadow-lg object-contain"
             onClick={() => fileInputRef.current.click()}
           />
           <input
