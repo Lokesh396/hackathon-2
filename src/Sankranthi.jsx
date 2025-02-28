@@ -2,7 +2,7 @@ import React from 'react'
 import  { useState, useRef } from "react";
 import banner from "/background.jpeg";
 import * as htmlToImage from "html-to-image";
-import { saveAs } from "file-saver";
+// import { saveAs } from "file-saver";
 function Sankranthi() {
     const [userName, setUserName] = useState("Your Name");
     const [uploadedImage, setUploadedImage] = useState("");
@@ -12,18 +12,18 @@ function Sankranthi() {
   
   
   
-    const handleDownload = async (ref, filename) => {
-      console.log(ref.current);
-      if (!ref.current) return;
+    // const handleDownload = async (ref, filename) => {
+    //   console.log(ref.current);
+    //   if (!ref.current) return;
   
-      try {
-        await htmlToImage.toBlob(ref.current).then(function (blob) {
-          saveAs(blob, `${filename}`);
-        });
-      } catch (error) {
-        console.error("Error capturing image:", error);
-      }
-    };
+    //   try {
+    //     await htmlToImage.toBlob(ref.current).then(function (blob) {
+    //       saveAs(blob, `${filename}`);
+    //     });
+    //   } catch (error) {
+    //     console.error("Error capturing image:", error);
+    //   }
+    // };
   
     const handleImageUpload = (event) => {
       const file = event.target.files[0];
@@ -57,7 +57,7 @@ function Sankranthi() {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="!w-full sm:max-w-[400px] rounded-lg shadow-lg text-center relative download-preview'"
+        className="!w-full sm:max-w-[400px] rounded-lg shadow-lg text-center relative m-0"
       >
         <p
           style={{
@@ -109,22 +109,8 @@ function Sankranthi() {
         </div>
       </div>
 
-      <div className="flex  sm:flex-row gap-4">
-        <button
-          onClick={() => handleDownload(templateRef1, "sankranti_wish.png")}
-          className="bg-orange-500 text-white px-4 py-2 rounded shadow w-full sm:w-auto"
-        >
-          Download Wishes
-        </button>
-        <button
-          onClick={() =>
-            shareImage(templateRef1)
-          }
-          className="bg-green-500 text-white px-4 py-2 rounded shadow w-full sm:w-auto"
-        >
-          Share on WhatsApp
-        </button>
-      </div>
+      <img alt='whatsapp' src='/Whatsapp.png' onClick={()=>{shareImage(templateRef1)}} style={{transform: 'translateY(-50%)'}} className='w-12 h-12 '></img>
+     
     </div>
   )
 }
