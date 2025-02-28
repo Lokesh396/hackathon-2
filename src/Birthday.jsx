@@ -39,7 +39,8 @@ function Birthday() {
         navigator.share({
           files: [file],
           title: "Happy Birthday SuperStar!",
-          text: `${message} \nCreate yours: ${shareLink}`,
+          text: `${message}`,
+          url:  `Create yours: ${shareLink}`
         });
       } else {
         alert("Sharing not supported on this device.");
@@ -66,12 +67,12 @@ function Birthday() {
         >
           way2news
         </p>
-        <div className="absolute top-0 flex flex-col gap-4 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold">
+        <div className="absolute top-0 w-full  flex flex-col gap-2 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold">
           <img src='/mahesh.jpg' alt='hero' />
           <img
             src={uploadedImage || "/person.png"}
             alt="Uploaded Person"
-            className="w-40 h-40 rounded-md cursor-pointer shadow-lg object-contain"
+            className="w-48 h-48 rounded-md cursor-pointer shadow-lg object-contain"
             onClick={() => fileInputRef.current.click()}
           />
           <input
@@ -85,7 +86,7 @@ function Birthday() {
             type="text"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
-            className="text-yellow-400 font-bold text-center w-full max-w-[200px] bg-transparent border-none outline-none"
+            className="font-bold text-center w-full max-w-[200px] border-none outline-none text-lg sm:text-xl text-yellow-400 px-2 py-1 rounded-md uppercase tracking-wide"
             placeholder="Your Name"
           />
         </div>

@@ -40,7 +40,8 @@ function Sankranthi() {
         navigator.share({
           files: [file],
           title: "Happy Sankranti!",
-          text: `${message} \nCreate yours: ${shareLink}`,
+          text: `${message}`,
+          url:  `Create yours: ${shareLink}`
         });
       } else {
         alert("Sharing not supported on this device.");
@@ -72,12 +73,13 @@ function Sankranthi() {
         >
           way2news
         </p>
-        <div className="absolute top-[15%] sm:top-[15%] left-1/2 transform -translate-x-1/2 !max-w-[300px] flex flex-col gap-4 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold">
-          <p className="text-center">
-            మీకు మీ కుటుంబ సబ్యులకు సంక్రాతి శుభాకాంక్షలు
-          </p>
-          <p>ఇట్లు </p>
-          <img
+        <div className="absolute top-[15%] sm:top-[15%] left-1/2 transform -translate-x-1/2 !max-w-[350px] flex flex-col gap-3 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold">
+        <p className=" font-bold text-blue-500 ">
+        మీకు మీ కుటుంబ సభ్యులకు <br></br> 🎊సంక్రాంతి శుభాకాంక్షలు🎊
+</p>
+
+          <p className='italic'>ఇట్లు </p>
+          <img 
             src={uploadedImage || "/person.png"}
             alt="Uploaded Person"
             className="w-28 h-28 sm:w-28 sm:h-28 rounded-full cursor-pointer shadow-lg object-contain"
@@ -107,7 +109,7 @@ function Sankranthi() {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex  sm:flex-row gap-4">
         <button
           onClick={() => handleDownload(templateRef1, "sankranti_wish.png")}
           className="bg-orange-500 text-white px-4 py-2 rounded shadow w-full sm:w-auto"
