@@ -108,7 +108,7 @@ function Birthday() {
         >
           way2news
         </p>
-        <div className="absolute top-0 w-full  flex flex-col gap-2 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold bg-white">
+        <div className="absolute top-0 w-full  flex flex-col gap-2 justify-center items-center text-[22px] sm:text-[28px] text-blue-700 font-bold">
           <img src='/mahesh.jpg' alt='hero' />
           <img
             src={uploadedImage || "/person.png"}
