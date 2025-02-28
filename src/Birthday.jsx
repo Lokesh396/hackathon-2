@@ -7,7 +7,7 @@ function Birthday() {
     const [uploadedImage, setUploadedImage] = useState("");
     const fileInputRef = useRef(null);
     const templateRef1 = useRef(null);
-    const shareLink = "https://hackathon-2-nine-alpha.vercel.app/";
+    const shareLink = "https://play.google.com/store/apps/details?id=sun.way2sms.hyd.com&pcampaignid=web_share"
   
   
   
