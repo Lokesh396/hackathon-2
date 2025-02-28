@@ -2,6 +2,8 @@ import React from 'react'
 import  { useState, useRef } from "react";
 import * as htmlToImage from "html-to-image";
 import { saveAs } from "file-saver";
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
 function Birthday() {
     const [userName, setUserName] = useState("Your Name");
     const [uploadedImage, setUploadedImage] = useState("");
@@ -9,8 +11,7 @@ function Birthday() {
     const templateRef1 = useRef(null);
     const shareLink = "https://play.google.com/store/apps/details?id=sun.way2sms.hyd.com&pcampaignid=web_share"
   
-  
-  
+    const { width, height } = useWindowSize()
     const handleDownload = async (ref, filename) => {
       console.log(ref.current);
       if (!ref.current) return;
@@ -46,8 +47,14 @@ function Birthday() {
         alert("Sharing not supported on this device.");
       }
     };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 space-y-6 w-full">
+        return (
+    <Confetti
+      width={width}
+      height={height}
+    />
       <div
         ref={templateRef1}
         className="!w-full sm:max-w-[400px] min-h-[650px] rounded-lg shadow-lg text-center relative"

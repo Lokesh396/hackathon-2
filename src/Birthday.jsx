@@ -2,6 +2,9 @@ import React from 'react'
 import  { useState, useRef } from "react";
 import * as htmlToImage from "html-to-image";
 import { saveAs } from "file-saver";
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
+
 function Birthday() {
     const [userName, setUserName] = useState("Your Name");
     const [uploadedImage, setUploadedImage] = useState("");
@@ -10,6 +13,7 @@ function Birthday() {
     const shareLink = "https://play.google.com/store/apps/details?id=sun.way2sms.hyd.com&pcampaignid=web_share"
   
   
+    const { width, height } = useWindowSize()
   
     const handleDownload = async (ref, filename) => {
       console.log(ref.current);
@@ -48,6 +52,43 @@ function Birthday() {
     };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 space-y-6 w-full">
+       <Confetti 
+  width={width} 
+  height={height} 
+  wind={0.02} 
+  gravity={0.05} 
+  numberOfPieces={10} 
+  drawShape={(ctx) => {
+    // Creating a gradient for a 3D effect
+    const gradient = ctx.createRadialGradient(0, 0, 5, 0, 0, 20);
+    gradient.addColorStop(0, "#ff4d4d"); // Light center
+    gradient.addColorStop(1, "#b30000"); // Dark edges
+
+    // Draw balloon ellipse
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 15, 20, 0, 0, 2 * Math.PI);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    ctx.closePath();
+
+    // Balloon highlight
+    ctx.beginPath();
+    ctx.arc(-5, -8, 4, 0, 2 * Math.PI);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.fill();
+    ctx.closePath();
+
+    // Balloon string
+    ctx.beginPath();
+    ctx.moveTo(0, 20);
+    ctx.lineTo(0, 30);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+  }}
+/>
+
       <div
         ref={templateRef1}
         className="!w-full sm:max-w-[400px] min-h-[650px] rounded-lg shadow-lg text-center relative"
