@@ -6,7 +6,7 @@ function Home() {
     const navigate = useNavigate();
     useEffect(()=>{
         navigate("Sankranthi")
-    },[navigate])
+    },[])
   return (
     <div>
       <NavBar/>
