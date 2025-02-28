@@ -5,8 +5,8 @@ import NavBar from "./NavBar";
 function Home() {
     const navigate = useNavigate();
     useEffect(()=>{
-        navigate("/Sankranthi")
-    },[])
+        navigate("Sankranthi")
+    },[navigate])
   return (
     <div>
       <NavBar/>

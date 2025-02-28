@@ -8,8 +8,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route index path="/Sankranthi" element={<Sankranthi />} />
-          <Route path="/birthday" element={<Birthday />} />
+          <Route index path="Sankranthi" element={<Sankranthi />} />
+          <Route path="birthday" element={<Birthday />} />
         </Route>
       </Routes>
     </BrowserRouter>
