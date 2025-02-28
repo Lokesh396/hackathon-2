@@ -33,15 +33,15 @@ function Sankranthi() {
       }
     };
   
-    const shareImage = async (ref, message) => {
+    const shareImage = async (ref) => {
       const blob = await htmlToImage.toBlob(ref.current);
       const file = new File([blob], "sankranti_wish.png", { type: "image/png" });
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         navigator.share({
           files: [file],
           title: "Happy Sankranti!",
-          text: `${message}`,
-          url:  `Create yours: ${shareLink}`
+          text: 'Create Yours:',
+          url:  shareLink
         });
       } else {
         alert("Sharing not supported on this device.");
@@ -118,7 +118,7 @@ function Sankranthi() {
         </button>
         <button
           onClick={() =>
-            shareImage(templateRef1, "Happy Sankranti! Celebrate with us!")
+            shareImage(templateRef1)
           }
           className="bg-green-500 text-white px-4 py-2 rounded shadow w-full sm:w-auto"
         >
